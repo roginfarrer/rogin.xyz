@@ -11,11 +11,10 @@ const Article = styled.article`
 `;
 
 const ArticleTitle = styled.h2`
-  font-size: ${({theme}) =>
-    theme.media.sm ? theme.fontSize.large : theme.fontSize.roadsign};
-  /* ${({theme}) => theme.media.sm`
+  font-size: ${({theme}) => theme.fontSize.large};
+  ${({theme}) => theme.media.sm`
     font-size: ${theme.fontSize.roadsign};
-  `}; */
+  `};
   margin: 1.5em 0 0.5em;
 `;
 
