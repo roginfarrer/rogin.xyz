@@ -38,7 +38,7 @@ const PostTitleLink = styled(Link)`
 `;
 
 const PostDate = styled.p`
-  font-size: ${({theme}) => theme.fontSize.small}
+  font-size: ${({theme}) => theme.fontSize.small};
   margin: 0;
 `;
 

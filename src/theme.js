@@ -42,7 +42,7 @@ export const theme = {
   media: {
     ...Object.keys(breakpoints).reduce((acc, label) => {
       // `any` type below to allow whatever values that styled-components accepts in the css function
-      acc[label] = (...args: any) => css`
+      acc[label] = args => css`
         @media screen and (min-width: ${breakpoints[label]}px) {
           ${css(...args)};
         }
