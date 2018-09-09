@@ -3,6 +3,7 @@ import {graphql} from 'gatsby';
 import Layout from './layout';
 import MarkdownWrapper from './markdown-wrapper';
 import styled from 'styled-components';
+import 'prismjs/themes/prism-tomorrow.css';
 
 const Article = styled.article`
   max-width: ${({theme}) => theme.pageWidth};
@@ -10,11 +11,12 @@ const Article = styled.article`
 `;
 
 const ArticleTitle = styled.h2`
-  font-size: ${({theme}) => theme.fontSize.large};
-  ${({theme}) => theme.media.sm`
-    font-size: ${theme.fontSize.roadsign}
-  `};
-  margin: 1.414em 0 0.5em;
+  font-size: ${({theme}) =>
+    theme.media.sm ? theme.fontSize.large : theme.fontSize.roadsign};
+  /* ${({theme}) => theme.media.sm`
+    font-size: ${theme.fontSize.roadsign};
+  `}; */
+  margin: 1.5em 0 0.5em;
 `;
 
 const ArticleDate = styled.p`

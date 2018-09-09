@@ -56,11 +56,11 @@ Now open up Terminal. It’s time to install Jekyll and some of the tools we nee
 
 In Terminal, enter these lines to create a Jekyll installation:
 
-{% highlight bash %}
+```bash
 $ cd /your/folder/location/jekyll
 $ sudo gem install jekyll
 $ jekyll new .
-{% endhighlight %}
+```
 
 With this we navigated to the folder that we want to install jekyll into, we installed Jekyll (`sudo` to bypass permission errors), and created a new Jekyll repository in our folder. At this point, Jekyll has built a skeleton directory in the folder. I encourage you to stop at this point and poke around and get familiar with the file structure.
 
@@ -68,16 +68,15 @@ With this we navigated to the folder that we want to install jekyll into, we ins
 
 This one took me a while to figure out, because when you install Compass and create a build, it adds its own SASS and stylesheet folders. It took me a little while to figure out how to configure Compass to find my Sass files and then synthesize them into the right folder. So I’ll break it down.
 
-{% highlight bash %}
+```bash
 sudo gem install sass
 sudo gem install compass
 compass create
-{% endhighlight %}
+```
 
 Okay, so at this point Compass has added three folders: `config.rb`, `sass` (as distinct from `_sass`), and `stylesheets`. It’s now time to decide how you want to organize your assets. I decided to keep the structure from the Jekyll installation, so I deleted `sass` and `stylesheets`. Then open `config.rb` in a text editor.
 
-{% highlight coffee %}
-
+```yaml
 # Change line 6 to:
 
 css_dir = "css"
@@ -85,7 +84,7 @@ css_dir = "css"
 # Change line 7 to:
 
 sass_dir = "\_sass"
-{% endhighlight %}
+```
 
 Compass should now do its job correctly.
 
@@ -93,7 +92,7 @@ Compass should now do its job correctly.
 
 In this file, you configure a lot of the major variables for your site, like its URL path, name, description, directory, etc. There’s a bunch of things you can do here, but to get you started, here’s what I use:
 
-{% highlight coffee %}
+```yaml
 source: .
 destination: ./\_site
 includes: ./\_includes
@@ -102,16 +101,16 @@ markdown: kramdown
 permalink: /:title.html
 
 name: RoginFarrer.com
-base_url: ""
+base_url: ''
 url: http://roginfarrer.com
-description: "A blog covering Tech news, design, productivity, health, and the arts by Rogin Farrer."
-root_desc: "RoginFarrer.com — Tech, Design, and Theater"
+description: 'A blog covering Tech news, design, productivity, health, and the arts by Rogin Farrer.'
+root_desc: 'RoginFarrer.com — Tech, Design, and Theater'
 
 exclude: ['README.markdown', 'config.rb']
 include: ['.htaccess']
 
 paginate: 10
-{% endhighlight %}
+```
 
 Be sure to change the variables like `name` to your own!
 
@@ -119,18 +118,18 @@ Be sure to change the variables like `name` to your own!
 
 We’ve now got our local directory up and running! When you’re ready to open your site locally, open your terminal to a new window.
 
-{% highlight bash %}
+```bash
 $ cd /your/folder/location/jekyll
 $ jekyll serve -w
-{% endhighlight %}
+```
 
 Terminal will start running Jekyll! It will also spit out a local web address like `http://127.0.0.1:4000/` which you can enter to your browser. BAM! There’s your site!
 
 Then to get compass running, type in the usual command:
 
-{% highlight bash %}
+```
 $ compass watch
-{% endhighlight %}
+```
 
 That’s it! You’re good to go with your local repository.
 

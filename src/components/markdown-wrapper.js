@@ -93,7 +93,7 @@ const MarkdownWrapper = styled.div`
     }
   }
 
-  code {
+  p > code.language-text {
     background-color: ${({theme}) =>
       `rgba(${hexToRgb(theme.color.primary)}, 0.1)`};
     color: ${({theme}) => theme.color.primary};
