@@ -9,6 +9,7 @@ module.exports = {
     'gatsby-plugin-catch-links',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
