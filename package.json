@@ -5,7 +5,7 @@
   "author": "Rogin Farrer",
   "dependencies": {
     "babel-plugin-styled-components": "^1.6.4",
-    "gatsby": "^2.0.0-rc.15",
+    "gatsby": "^2.0.x",
     "gatsby-image": "^1.0.55",
     "gatsby-plugin-catch-links": "^1.0.24",
     "gatsby-plugin-favicon": "^3.1.2",
@@ -36,7 +36,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "eslint": "^5.5.0",
+    "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
