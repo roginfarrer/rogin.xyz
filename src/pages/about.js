@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout';
+import Header from '../components/site-header';
 import {graphql} from 'gatsby';
 import styled, {keyframes} from 'styled-components';
 import {theme} from '../theme';
@@ -45,6 +46,7 @@ const StyledSocialAnchor = props => (
 
 export default ({data}) => (
   <Layout>
+    <Header siteTitle={data.site.siteMetadata.title} />
     <Page>
       <MeContainer>
         <Me sizes={data.avatarImg.childImageSharp.sizes} />
@@ -54,10 +56,9 @@ export default ({data}) => (
         <a href="https://wayfair.com" rel="noopener noreferrer" target="blank">
           Wayfair
         </a>
-        . I work on the Wayfair's Homebase Design System. That includes the
-        customer-facing pattern library, but mostly the pattern libraries for
-        our enterprise users. I spend most of my day in React and SCSS, and some
-        styled-components.
+        . I work on the Wayfair's Homebase Design Systems (customer-facing
+        brands, internal applications, supplier portal, and everything in
+        between).
       </P>
       <P>
         Find me on{' '}
@@ -89,6 +90,12 @@ export default ({data}) => (
 
 export const query = graphql`
   query indexQuery {
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
     avatarImg: file(relativePath: {eq: "avatar-cropped.jpg"}) {
       childImageSharp {
         sizes(maxWidth: 400) {

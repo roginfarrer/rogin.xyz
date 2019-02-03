@@ -20,7 +20,7 @@ export const globalStyle = theme => injectGlobal`
     margin: 0;
   }
 
-  a,
+  /* a,
   area,
   button,
   input,
@@ -33,7 +33,7 @@ export const globalStyle = theme => injectGlobal`
       outline: 1px dashed ${theme.color.base};
       outline-offset: 2px;
     }
-  }
+  } */
 
   img {
     max-width: 100%;

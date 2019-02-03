@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Superb Meteors',
+    title: 'Rogin Farrer',
     author: 'Rogin Farrer'
   },
   plugins: [

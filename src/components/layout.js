@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import {StaticQuery, graphql} from 'gatsby';
 
-import Header from './site-header';
 import Footer from './site-footer';
 import '../assets/styles/style.css';
 import {globalStyle} from '../globalStyle';
@@ -45,10 +44,6 @@ const Container = ({children, data, theme}) => (
           <html lang="en" />
         </Helmet>
         <PageContainer>
-          <Header
-            siteTitle={data.site.siteMetadata.title}
-            author={data.site.siteMetadata.author}
-          />
           <Content>{children}</Content>
           <Footer />
         </PageContainer>

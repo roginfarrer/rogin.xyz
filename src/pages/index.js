@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import {Link, graphql} from 'gatsby';
 import styled from 'styled-components';
-import ReadMoreLink from '../components/read-more-link';
+import SiteHeader from '../components/site-header';
 
 const BlogIndex = styled.section`
   margin: 3em auto 0;
@@ -16,9 +16,6 @@ const Post = styled.section`
 `;
 
 const PostFooter = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-top: 1rem;
 `;
 
@@ -29,7 +26,6 @@ const PostTitle = styled.h2`
 
 const PostTitleLink = styled(Link)`
   color: ${({theme}) => theme.color.base};
-  transition: color 200ms;
   text-decoration: none;
   &:hover,
   &:focus {
@@ -44,8 +40,14 @@ const PostDate = styled.p`
 
 export default function Index({data = {}}) {
   const {edges: posts} = data.allMarkdownRemark;
+  const {
+    site: {
+      siteMetadata: {title, author}
+    }
+  } = data;
   return (
     <Layout>
+      <SiteHeader siteTitle={title} author={author} showByline />
       <BlogIndex>
         {posts
           .filter(post => post.node.frontmatter.title.length > 0)
@@ -70,9 +72,6 @@ export default function Index({data = {}}) {
                 </p>
                 <PostFooter>
                   <PostDate>Posted on {post.frontmatter.date}</PostDate>
-                  <ReadMoreLink to={post.frontmatter.path}>
-                    Continue Reading
-                  </ReadMoreLink>
                 </PostFooter>
               </Post>
             );
@@ -84,6 +83,12 @@ export default function Index({data = {}}) {
 
 export const pageQuery = graphql`
   query IndexQuery {
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
     allMarkdownRemark(
       sort: {order: DESC, fields: [fileAbsolutePath]}
       filter: {frontmatter: {draft: {ne: true}}}

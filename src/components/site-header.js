@@ -15,38 +15,44 @@ const HeaderContainer = styled.header`
 
 const Title = styled.h1`
   margin: 0;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-size: 1rem;
   flex: 1;
 `;
 
 const TitleLink = styled(Link)`
   color: ${({theme}) => theme.color.base};
-  text-decoration: none;
+  /* text-decoration: none; */
 
   &:hover,
   &:focus {
-    .SiteHeader-title {
-      animation: ${({theme}) => `${colorChange(theme)} 1s linear infinite`};
-    }
+    animation: ${({theme}) => `${colorChange(theme)} 1s linear infinite`};
   }
 `;
 
 const TitleByline = styled.span`
+  color: ${({theme}) => theme.color.lightBase};
+  display: block;
   font-weight: normal;
+  font-style: italic;
+  margin-top: 0.25rem;
 `;
 
-const StyledHeader = ({siteTitle, author, ...props}) => (
+const StyledHeader = ({siteTitle, author, showByline, ...props}) => (
   <HeaderContainer>
     <Title>
-      <TitleLink to="/">
-        <span className="SiteHeader-title">{siteTitle}</span>
-        <TitleByline className="SiteHeader-byline">
-          &nbsp;by {author}
+      Hi, I'm&nbsp;
+      <TitleLink to="/">{siteTitle}</TitleLink>.
+      {showByline && (
+        <TitleByline>
+          A personal blog about technology, web development, and some IRL stuff.
         </TitleByline>
-      </TitleLink>
+      )}
     </Title>
   </HeaderContainer>
 );
+StyledHeader.defaultProps = {
+  showByline: false
+};
 
 export default StyledHeader;

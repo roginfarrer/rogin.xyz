@@ -2,6 +2,7 @@ import React from 'react';
 import {graphql} from 'gatsby';
 import Layout from './layout';
 import MarkdownWrapper from './markdown-wrapper';
+import Header from './site-header';
 import styled from 'styled-components';
 import 'prismjs/themes/prism-tomorrow.css';
 
@@ -28,6 +29,7 @@ const Template = ({data}) => {
   const {markdownRemark: post} = data;
   return (
     <Layout>
+      <Header siteTitle={data.site.siteMetadata.title} />
       <Article>
         <ArticleTitle>{post.frontmatter.title}</ArticleTitle>
         <ArticleDate>{post.frontmatter.date}</ArticleDate>
@@ -39,6 +41,12 @@ const Template = ({data}) => {
 
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
     markdownRemark(frontmatter: {path: {eq: $path}}) {
       html
       frontmatter {
