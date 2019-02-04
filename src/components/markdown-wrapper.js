@@ -97,8 +97,7 @@ const MarkdownWrapper = styled.div`
     background-color: ${({theme}) =>
       `rgba(${hexToRgb(theme.color.primary)}, 0.1)`};
     color: ${({theme}) => theme.color.primary};
-    font-family: 'Operator Mono', 'Dank Mono', 'Courier Prime', menlo, monospace;
-    font-weight: bold;
+    font-family: 'Consolas', 'Courier Prime', menlo, monospace;
     padding: 0 0.2rem;
   }
 

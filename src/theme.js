@@ -28,7 +28,7 @@ export const theme = {
   },
   serifFallback,
   fontFamily: {
-    sansSerif: `"Catamaran", ${sansSerifFallback}`,
+    sansSerif: `"Lato", ${sansSerifFallback}`,
     serif: `"Vollkorn", ${serifFallback}`,
   },
   fontSize: {
@@ -50,5 +50,5 @@ export const theme = {
       return acc;
     }, {}),
   },
-  pageWidth: '36rem',
+  pageWidth: '32rem',
 };

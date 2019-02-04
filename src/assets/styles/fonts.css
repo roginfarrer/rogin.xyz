@@ -8,19 +8,28 @@
 }
 
 @font-face {
-  font-family: 'Catamaran';
-  src: url('../fonts/catamaran-700.woff2') format('woff2'),
-    url('../fonts/catamaran-700.woff2') format('woff'),
-    url('../fonts/catamaran-700.ttf') format('ttf');
+  font-family: 'lato';
+  src: url('../fonts/lato-bold.woff2') format('woff2'),
+    url('../fonts/lato-bold.woff2') format('woff'),
+    url('../fonts/lato-bold.ttf') format('ttf');
   font-style: normal;
   font-weight: bold;
 }
 
 @font-face {
-  font-family: 'Catamaran';
-  src: url('../fonts/catamaran-regular.woff2') format('woff2'),
-    url('../fonts/catamaran-regular.woff2') format('woff'),
-    url('../fonts/catamaran-regular.ttf') format('ttf');
+  font-family: 'lato';
+  src: url('../fonts/lato-italic.woff2') format('woff2'),
+    url('../fonts/lato-italic.woff2') format('woff'),
+    url('../fonts/lato-italic.ttf') format('ttf');
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'lato';
+  src: url('../fonts/lato-regular.woff2') format('woff2'),
+    url('../fonts/lato-regular.woff2') format('woff'),
+    url('../fonts/lato-regular.ttf') format('ttf');
   font-style: normal;
   font-weight: normal;
 }
