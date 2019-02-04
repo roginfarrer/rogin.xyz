@@ -1,7 +1,9 @@
 import React from 'react';
-import Layout from '../components/layout';
+import PropTypes from 'prop-types';
 import {Link, graphql} from 'gatsby';
 import styled from 'styled-components';
+
+import Layout from '../components/layout';
 import SiteHeader from '../components/site-header';
 
 const BlogIndex = styled.section`
@@ -76,6 +78,9 @@ export default function Index({data = {}}) {
     </Layout>
   );
 }
+Index.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export const pageQuery = graphql`
   query IndexQuery {

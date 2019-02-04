@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import {StaticQuery, graphql} from 'gatsby';
+import styled, {ThemeProvider} from 'styled-components';
 
+import {globalStyle} from '../globalStyle';
+import {theme as globalTheme} from '../theme';
 import Footer from './site-footer';
 import '../assets/styles/style.css';
-import {globalStyle} from '../globalStyle';
-import {theme} from '../theme';
-import styled, {ThemeProvider} from 'styled-components';
 
 const PageContainer = styled.div`
   padding: 0 15px;
@@ -19,7 +19,7 @@ const Content = styled.main`
   margin: 0 auto;
 `;
 
-const Container = ({children, data, theme}) => (
+const Container = ({children, theme}) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -54,18 +54,19 @@ const Container = ({children, data, theme}) => (
 
 Container.propTypes = {
   children: PropTypes.node.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 export default class WrappedContainer extends React.Component {
   constructor(props) {
     super(props);
-    globalStyle(theme);
+    globalStyle(globalTheme);
   }
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
-        <Container {...this.props} theme={theme} />
+      <ThemeProvider theme={globalTheme}>
+        <Container {...this.props} theme={globalTheme} />
       </ThemeProvider>
     );
   }

@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {graphql} from 'gatsby';
+import Img from 'gatsby-image';
+import styled, {keyframes} from 'styled-components';
+
 import Layout from '../components/layout';
 import Header from '../components/site-header';
-import {graphql} from 'gatsby';
-import styled, {keyframes} from 'styled-components';
-import {theme} from '../theme';
-import Img from 'gatsby-image';
+import {theme as globalTheme} from '../theme';
 
 const avatarEnter = keyframes`
   0% {
@@ -44,49 +46,61 @@ const StyledSocialAnchor = props => (
   <SocialAnchor rel="noopener noreferrer" target="_blank" {...props} />
 );
 
-export default ({data}) => (
-  <Layout>
-    <Header siteTitle={data.site.siteMetadata.title} />
-    <Page>
-      <MeContainer>
-        <Me sizes={data.avatarImg.childImageSharp.sizes} />
-      </MeContainer>
-      <P>
-        I'm Rogin Farrer, and I'm a web developer at{' '}
-        <a href="https://wayfair.com" rel="noopener noreferrer" target="blank">
-          Wayfair
-        </a>
-        . I work on the Wayfair's Homebase Design Systems (customer-facing
-        brands, internal applications, supplier portal, and everything in
-        between).
-      </P>
-      <P>
-        Find me on{' '}
-        <StyledSocialAnchor
-          color={theme.color.brands.twitter}
-          href="https://twitter.com/roginfarrer"
-        >
-          Twitter
-        </StyledSocialAnchor>
-        ,{' '}
-        <StyledSocialAnchor
-          color={theme.color.brands.github}
-          href="https://github.com/roginfarrer"
-        >
-          Github
-        </StyledSocialAnchor>
-        , and{' '}
-        <StyledSocialAnchor
-          color={theme.color.brands.linkedin}
-          href="https://www.linkedin.com/in/roginfarrer/"
-        >
-          LinkedIn
-        </StyledSocialAnchor>
-        .
-      </P>
-    </Page>
-  </Layout>
-);
+export default function About({data}) {
+  return (
+    <Layout>
+      <Header siteTitle={data.site.siteMetadata.title} />
+      <Page>
+        <MeContainer>
+          <Me sizes={data.avatarImg.childImageSharp.sizes} />
+        </MeContainer>
+        <P>
+          I&apos;m Rogin Farrer, and I&apos;m a web developer at{' '}
+          <a
+            href="https://wayfair.com"
+            rel="noopener noreferrer"
+            target="blank"
+          >
+            Wayfair
+          </a>
+          {/* Prettier makes this weird line :/
+              eslint-disable-next-line react/jsx-child-element-spacing
+          */}
+          . I work on the Wayfair&apos;s Homebase Design Systems
+          (customer-facing brands, internal applications, supplier portal, and
+          everything in between).
+        </P>
+        <P>
+          Find me on{' '}
+          <StyledSocialAnchor
+            color={globalTheme.color.brands.twitter}
+            href="https://twitter.com/roginfarrer"
+          >
+            Twitter
+          </StyledSocialAnchor>
+          ,{' '}
+          <StyledSocialAnchor
+            color={globalTheme.color.brands.github}
+            href="https://github.com/roginfarrer"
+          >
+            Github
+          </StyledSocialAnchor>
+          , and{' '}
+          <StyledSocialAnchor
+            color={globalTheme.color.brands.linkedin}
+            href="https://www.linkedin.com/in/roginfarrer/"
+          >
+            LinkedIn
+          </StyledSocialAnchor>
+          .
+        </P>
+      </Page>
+    </Layout>
+  );
+}
+About.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export const query = graphql`
   query indexQuery {

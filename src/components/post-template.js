@@ -1,9 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {graphql} from 'gatsby';
+import styled from 'styled-components';
+
 import Layout from './layout';
 import MarkdownWrapper from './markdown-wrapper';
 import Header from './site-header';
-import styled from 'styled-components';
+
 import 'prismjs/themes/prism-tomorrow.css';
 
 const Article = styled.article`
@@ -37,6 +40,9 @@ const Template = ({data}) => {
       </Article>
     </Layout>
   );
+};
+Template.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
 export const pageQuery = graphql`

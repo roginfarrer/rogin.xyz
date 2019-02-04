@@ -2,6 +2,7 @@ export const hexToRgb = hex =>
   hex
     .replace(
       /^#?([a-f\d])([a-f\d])([a-f\d])$/i,
+      // eslint-disable-next-line prefer-template
       (m, r, g, b) => '#' + r + r + g + g + b + b
     )
     .substring(1)

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'gatsby';
 import styled, {keyframes} from 'styled-components';
 
@@ -15,14 +16,12 @@ const HeaderContainer = styled.header`
 
 const Title = styled.h1`
   margin: 0;
-  /* text-transform: uppercase; */
   font-size: 1rem;
   flex: 1;
 `;
 
 const TitleLink = styled(Link)`
   color: ${({theme}) => theme.color.base};
-  /* text-decoration: none; */
 
   &:hover,
   &:focus {
@@ -38,10 +37,10 @@ const TitleByline = styled.span`
   margin-top: 0.25rem;
 `;
 
-const StyledHeader = ({siteTitle, author, showByline, ...props}) => (
+const StyledHeader = ({siteTitle, showByline}) => (
   <HeaderContainer>
     <Title>
-      Hi, I'm&nbsp;
+      Hi, I&apos;m&nbsp;
       <TitleLink to="/">{siteTitle}</TitleLink>.
       {showByline && (
         <TitleByline>
@@ -51,6 +50,10 @@ const StyledHeader = ({siteTitle, author, showByline, ...props}) => (
     </Title>
   </HeaderContainer>
 );
+StyledHeader.propTypes = {
+  siteTitle: PropTypes.string.isRequired,
+  showByline: PropTypes.bool,
+};
 StyledHeader.defaultProps = {
   showByline: false,
 };
