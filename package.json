@@ -36,16 +36,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "rogin-scripts format",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "rogin-scripts lint"
-  },
-  "devDependencies": {
-    "eslint": "^5.7.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.1",
-    "prettier": "^1.13.7"
   },
   "repository": {
     "type": "git",
