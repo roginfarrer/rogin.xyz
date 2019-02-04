@@ -19,17 +19,17 @@ Second level headings are used to split text into sections. First level headings
 
 For emphasis, **bold text** is very useful to make words pop. For important, but less urgent points, _italicized text_ becomes handy.
 
-- Bulleted lists look like this.
-- Sometimes my lists are long.
-- This is not one of those lists.
+* Bulleted lists look like this.
+* Sometimes my lists are long.
+* This is not one of those lists.
 
 #### Second biggest heading level
 
 Third level headings are most often used to denote names rather than sections, so have a lower visual priority. Headings should avoid containing or being themselves hyperlinks, but when this rule is broken, heading hyperlinks do not differ in style from the heading itself.
 
-1. This is a numbered list.
-2. Numbered lists are useful.
-3. Especially when one knows how to count.
+1.  This is a numbered list.
+2.  Numbered lists are useful.
+3.  Especially when one knows how to count.
 
 Sometimes my posts get long enough they require a page break. I don't use them very often, but here's an example of one:
 

@@ -1,0 +1,6 @@
+**/*.scss
+**/vendor/auto_built/**
+package.json
+**/*.yml
+**/public/*
+**/.cache/*

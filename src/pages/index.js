@@ -40,11 +40,7 @@ const PostDate = styled.p`
 
 export default function Index({data = {}}) {
   const {edges: posts} = data.allMarkdownRemark;
-  const {
-    site: {
-      siteMetadata: {title, author}
-    }
-  } = data;
+  const {site: {siteMetadata: {title, author}}} = data;
   return (
     <Layout>
       <SiteHeader siteTitle={title} author={author} showByline />
@@ -63,7 +59,7 @@ export default function Index({data = {}}) {
                   {post.frontmatter.excerpt ? (
                     <span
                       dangerouslySetInnerHTML={{
-                        __html: post.frontmatter.excerpt
+                        __html: post.frontmatter.excerpt,
                       }}
                     />
                   ) : (

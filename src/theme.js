@@ -10,7 +10,7 @@ export const breakpoints = {
   sm: 640,
   md: 1024,
   lg: 1141,
-  xl: 1400
+  xl: 1400,
 };
 
 export const theme = {
@@ -23,13 +23,13 @@ export const theme = {
     brands: {
       github: '#0366d6',
       twitter: '#1da1f2',
-      linkedin: '#0074b6'
-    }
+      linkedin: '#0074b6',
+    },
   },
   serifFallback,
   fontFamily: {
     sansSerif: `"Catamaran", ${sansSerifFallback}`,
-    serif: `"Vollkorn", ${serifFallback}`
+    serif: `"Vollkorn", ${serifFallback}`,
   },
   fontSize: {
     small: '0.8125rem', // 13px
@@ -37,7 +37,7 @@ export const theme = {
     medium: '1.25rem', // 20px
     large: '1.5rem', // 24px
     xl: '2rem', // 32px
-    roadsign: '3rem' // 48
+    roadsign: '3rem', // 48
   },
   media: {
     ...Object.keys(breakpoints).reduce((acc, label) => {
@@ -48,7 +48,7 @@ export const theme = {
         }
       `;
       return acc;
-    }, {})
+    }, {}),
   },
-  pageWidth: '36rem'
+  pageWidth: '36rem',
 };

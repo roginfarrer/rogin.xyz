@@ -52,7 +52,7 @@ const StyledHeader = ({siteTitle, author, showByline, ...props}) => (
   </HeaderContainer>
 );
 StyledHeader.defaultProps = {
-  showByline: false
+  showByline: false,
 };
 
 export default StyledHeader;

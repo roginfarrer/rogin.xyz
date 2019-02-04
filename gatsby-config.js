@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Rogin Farrer',
-    author: 'Rogin Farrer'
+    author: 'Rogin Farrer',
   },
   plugins: [
     'gatsby-plugin-styled-components',
@@ -14,29 +14,29 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: ['gatsby-remark-prismjs'], // just in case those previously mentioned remark plugins sound cool :)
-        excerpt_separator: `<!-- end -->`
-      }
+        excerpt_separator: `<!-- end -->`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: `${__dirname}/src/pages/`
-      }
+        path: `${__dirname}/src/pages/`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/src/posts/`
-      }
+        path: `${__dirname}/src/posts/`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/assets/images/`
-      }
+        path: `${__dirname}/src/assets/images/`,
+      },
     },
     {
       resolve: `gatsby-plugin-favicon`,
@@ -65,10 +65,10 @@ module.exports = {
           opengraph: false,
           twitter: false,
           yandex: false,
-          windows: false
-        }
-      }
+          windows: false,
+        },
+      },
     },
-    'gatsby-plugin-offline'
-  ]
+    'gatsby-plugin-offline',
+  ],
 };

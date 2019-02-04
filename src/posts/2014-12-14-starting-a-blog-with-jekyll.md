@@ -20,11 +20,11 @@ So for all you non-programmers interested in Jekyll, this is for you.
 
 Okay, so there’s many ways to build a Jekyll website. This process will all depend on where you want to host your site and how you like to work with your stylesheets. So to clarify, here’s what I’m going to explain:
 
-1. How to install Jekyll to a local directory
-2. How to incorporate [Compass](http://compass-style.org) and [SASS](http://sass-lang.com) into the workflow
-3. Setting up [Github Pages](http://github.com) hosting
-4. Configuring [Github for Mac](https://mac.github.com) to easily deploy your local repository.
-5. Setting up [Amazon S3](http://s3.amazonaws.com) and Cloudfront for a quick and dirty CDN.
+1.  How to install Jekyll to a local directory
+2.  How to incorporate [Compass](http://compass-style.org) and [SASS](http://sass-lang.com) into the workflow
+3.  Setting up [Github Pages](http://github.com) hosting
+4.  Configuring [Github for Mac](https://mac.github.com) to easily deploy your local repository.
+5.  Setting up [Amazon S3](http://s3.amazonaws.com) and Cloudfront for a quick and dirty CDN.
 
 Whew! Okay, now we can start.
 

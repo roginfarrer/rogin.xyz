@@ -38,7 +38,7 @@ const Container = ({children, data, theme}) => (
           meta={[
             {name: 'description', content: 'Sample'},
             {name: 'keywords', content: 'sample, something'},
-            {name: 'theme-color', content: theme.color.primary}
+            {name: 'theme-color', content: theme.color.primary},
           ]}
         >
           <html lang="en" />
@@ -53,7 +53,7 @@ const Container = ({children, data, theme}) => (
 );
 
 Container.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default class WrappedContainer extends React.Component {
