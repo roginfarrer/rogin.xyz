@@ -7,8 +7,6 @@ import Layout from './layout';
 import MarkdownWrapper from './markdown-wrapper';
 import Header from './site-header';
 
-import 'prismjs/themes/prism-tomorrow.css';
-
 const Article = styled.article`
   max-width: ${({theme}) => theme.pageWidth};
   margin: 0 auto;

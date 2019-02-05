@@ -11,6 +11,7 @@ const MarkdownWrapper = styled.div`
   blockquote,
   li {
     word-break: break-word;
+    hyphens: auto;
   }
   h3 {
     font-size: ${({theme}) => theme.fontSize.large};
@@ -58,11 +59,11 @@ const MarkdownWrapper = styled.div`
     list-style: none;
     &::before {
       content: counter(listCounter, decimal-leading-zero);
-      right: 1em;
+      left: -1.5rem;
+      top: 0.25rem;
       font-size: 0.8rem;
       font-weight: bold;
-      position: relative;
-      bottom: 0.2em;
+      position: absolute;
     }
   }
 
@@ -93,12 +94,15 @@ const MarkdownWrapper = styled.div`
     }
   }
 
-  p > code.language-text {
-    background-color: ${({theme}) =>
-      `rgba(${hexToRgb(theme.color.primary)}, 0.1)`};
-    color: ${({theme}) => theme.color.primary};
-    font-family: 'Consolas', 'Courier Prime', menlo, monospace;
-    padding: 0 0.2rem;
+  p,
+  li {
+    > code.language-text {
+      background-color: ${({theme}) =>
+        `rgba(${hexToRgb(theme.color.primary)}, 0.1)`};
+      color: ${({theme}) => theme.color.primary};
+      font-family: 'Consolas', 'Courier Prime', menlo, monospace;
+      padding: 0 0.2rem;
+    }
   }
 
   figure {
