@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {graphql} from 'gatsby';
 import Img from 'gatsby-image';
-import styled, {keyframes} from 'styled-components';
+import styled from '@emotion/styled';
+import {keyframes} from '@emotion/core';
 
 import Layout from '../components/layout';
 import Header from '../components/site-header';

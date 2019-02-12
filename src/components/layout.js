@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import {StaticQuery, graphql} from 'gatsby';
-import styled, {ThemeProvider} from 'styled-components';
+import styled from '@emotion/styled';
+import {ThemeProvider} from 'emotion-theming';
+import {Global} from '@emotion/core';
 
 import {globalStyle} from '../globalStyle';
 import {theme as globalTheme} from '../theme';
@@ -57,17 +59,11 @@ Container.propTypes = {
   theme: PropTypes.object.isRequired,
 };
 
-export default class WrappedContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    globalStyle(globalTheme);
-  }
-
-  render() {
-    return (
-      <ThemeProvider theme={globalTheme}>
-        <Container {...this.props} theme={globalTheme} />
-      </ThemeProvider>
-    );
-  }
+export default function WrappedContainer(props) {
+  return (
+    <ThemeProvider theme={globalTheme}>
+      <Global styles={globalStyle(globalTheme)} />
+      <Container {...props} theme={globalTheme} />
+    </ThemeProvider>
+  );
 }

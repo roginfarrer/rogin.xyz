@@ -1,4 +1,4 @@
-import {css} from 'styled-components';
+import {css} from '@emotion/core';
 
 const sansSerifFallback = `"BlinkMacSystemFont", -apple-system, "Helvetica Neue",
 Helvetica, sans-serif`;

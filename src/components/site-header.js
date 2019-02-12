@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'gatsby';
-import styled, {keyframes} from 'styled-components';
+import styled from '@emotion/styled';
+import {css, keyframes} from '@emotion/core';
 
 const colorChange = theme => keyframes`
   0% { color: ${theme.color.red}; }
@@ -20,12 +21,12 @@ const Title = styled.h1`
   flex: 1;
 `;
 
-const TitleLink = styled(Link)`
-  color: ${({theme}) => theme.color.base};
+const titleLink = theme => css`
+  color: ${theme.color.base};
 
   &:hover,
   &:focus {
-    animation: ${({theme}) => `${colorChange(theme)} 1s linear infinite`};
+    animation: ${colorChange(theme)} 1s linear infinite;
   }
 `;
 
@@ -41,7 +42,10 @@ const StyledHeader = ({siteTitle, showByline}) => (
   <HeaderContainer>
     <Title>
       Hi, I&apos;m&nbsp;
-      <TitleLink to="/">{siteTitle}</TitleLink>.
+      <Link css={titleLink} to="/">
+        {siteTitle}
+      </Link>
+      .
       {showByline && (
         <TitleByline>
           A personal blog about technology, web development, and some IRL stuff.

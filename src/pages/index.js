@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link, graphql} from 'gatsby';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import Layout from '../components/layout';
 import SiteHeader from '../components/site-header';
@@ -42,7 +42,11 @@ const PostDate = styled.p`
 
 export default function Index({data = {}}) {
   const {edges: posts} = data.allMarkdownRemark;
-  const {site: {siteMetadata: {title, author}}} = data;
+  const {
+    site: {
+      siteMetadata: {title, author},
+    },
+  } = data;
   return (
     <Layout>
       <SiteHeader siteTitle={title} author={author} showByline />

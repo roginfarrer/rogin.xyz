@@ -1,6 +1,6 @@
-import {injectGlobal} from 'styled-components';
+import {css} from '@emotion/core';
 
-export const globalStyle = theme => injectGlobal`
+export const globalStyle = theme => css`
   html {
     font-family: ${theme.fontFamily.sansSerif};
     font-size: 18px;
