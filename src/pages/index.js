@@ -42,11 +42,7 @@ const PostDate = styled.p`
 
 export default function Index({data = {}}) {
   const {edges: posts} = data.allMarkdownRemark;
-  const {
-    site: {
-      siteMetadata: {title, author},
-    },
-  } = data;
+  const {site: {siteMetadata: {title, author}}} = data;
   return (
     <Layout>
       <SiteHeader siteTitle={title} author={author} showByline />

@@ -34,7 +34,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "rm -rf public && rm -rf .cache && gatsby build",
     "develop": "gatsby develop",
     "format": "rogin-scripts format",
     "lint": "rogin-scripts lint"

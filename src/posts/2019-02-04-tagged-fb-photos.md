@@ -14,9 +14,9 @@ To do this, I largely followed [this guide](https://gnmerritt.net/deletefacebook
 
 As you see, you'll need to get your unique Facebook ID number:
 
-1. Go to your [profile page](https://www.facebook.com/me).
-2. Find the browser option `View Source` to get a long page of the code that makes up the page. On a Mac, you can hit `Option + Cmd + U`.
-3. Press `Ctrl + F` (Windows) or `Cmd + F` (Mac) and type **fb://**. The number following this is your Facebook ID, and you can use that in the URL above.
+1.  Go to your [profile page](https://www.facebook.com/me).
+2.  Find the browser option `View Source` to get a long page of the code that makes up the page. On a Mac, you can hit `Option + Cmd + U`.
+3.  Press `Ctrl + F` (Windows) or `Cmd + F` (Mac) and type **fb://**. The number following this is your Facebook ID, and you can use that in the URL above.
 
 Once you hit that URL, you should see a page that has all of the photos you're tagged in!
 
