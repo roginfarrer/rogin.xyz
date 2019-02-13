@@ -14,6 +14,8 @@ import '../assets/styles/style.css';
 
 const PageContainer = styled.div`
   padding: 0 15px;
+  background-color: ${({theme}) => theme.color.background};
+  transition: background-color 0.2s ease;
 `;
 
 const Content = styled.main`
@@ -22,7 +24,7 @@ const Content = styled.main`
   margin: 0 auto;
 `;
 
-const Container = ({children, data}) => {
+const Container = ({children}) => {
   const {toggle: toggleDarkMode, value: isDarkMode} = useDarkMode(false);
 
   const theme = isDarkMode ? darkTheme : globalTheme;
@@ -41,7 +43,6 @@ const Container = ({children, data}) => {
 
 Container.propTypes = {
   children: PropTypes.node.isRequired,
-  data: PropTypes.object.isRequired,
 };
 
 export default function WrappedContainer(props) {
@@ -69,7 +70,7 @@ export default function WrappedContainer(props) {
           >
             <html lang="en" />
           </Helmet>
-          <Container data={data} {...props} />
+          <Container {...props} />
         </>
       )}
     />

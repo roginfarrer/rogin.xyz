@@ -58,11 +58,11 @@ export const theme = {
 export const darkTheme = {
   ...theme,
   color: {
-    background: '#000',
+    background: '#222527',
     base: '#fff',
     lightBase: '#666',
     lighterBase: '#999',
-    primary: '#007acc',
+    primary: '#36aeff',
     red: '#d14054',
     brands: {
       github: '#0366d6',
