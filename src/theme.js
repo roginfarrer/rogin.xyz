@@ -15,6 +15,7 @@ export const breakpoints = {
 
 export const theme = {
   color: {
+    background: '#fff',
     base: '#221924',
     lightBase: '#666',
     lighterBase: '#999',
@@ -51,4 +52,23 @@ export const theme = {
     }, {}),
   },
   pageWidth: '32rem',
+  useAntiAliasing: false,
+};
+
+export const darkTheme = {
+  ...theme,
+  color: {
+    background: '#000',
+    base: '#fff',
+    lightBase: '#666',
+    lighterBase: '#999',
+    primary: '#007acc',
+    red: '#d14054',
+    brands: {
+      github: '#0366d6',
+      twitter: '#1da1f2',
+      linkedin: '#0074b6',
+    },
+  },
+  useAntiAliasing: true,
 };

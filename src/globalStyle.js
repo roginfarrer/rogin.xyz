@@ -7,6 +7,9 @@ export const globalStyle = theme => css`
   }
 
   body {
+    -webkit-font-smoothing: ${theme.useAntiAliasing ? 'antialiased' : ''};
+    background-color: ${theme.color.background};
+    transition: background-color 0.2s ease;
     min-height: 100vh;
     font-size: ${theme.fontSize.body}
     -webkit-font-smoothing: antialiased;

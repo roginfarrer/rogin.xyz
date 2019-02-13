@@ -5,9 +5,10 @@ import {StaticQuery, graphql} from 'gatsby';
 import styled from '@emotion/styled';
 import {ThemeProvider} from 'emotion-theming';
 import {Global} from '@emotion/core';
+import useDarkMode from 'use-dark-mode';
 
 import {globalStyle} from '../globalStyle';
-import {theme as globalTheme} from '../theme';
+import {theme as globalTheme, darkTheme} from '../theme';
 import Footer from './site-footer';
 import '../assets/styles/style.css';
 
@@ -21,49 +22,56 @@ const Content = styled.main`
   margin: 0 auto;
 `;
 
-const Container = ({children, theme}) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-            author
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            {name: 'description', content: 'Sample'},
-            {name: 'keywords', content: 'sample, something'},
-            {name: 'theme-color', content: theme.color.primary},
-          ]}
-        >
-          <html lang="en" />
-        </Helmet>
-        <PageContainer>
-          <Content>{children}</Content>
-          <Footer />
-        </PageContainer>
-      </>
-    )}
-  />
-);
+const Container = ({children, data}) => {
+  const {toggle: toggleDarkMode, value: isDarkMode} = useDarkMode(false);
+
+  const theme = isDarkMode ? darkTheme : globalTheme;
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Global styles={globalStyle(theme)} />
+      <PageContainer>
+        <input type="checkbox" onChange={toggleDarkMode} checked={isDarkMode} />
+        <Content>{children}</Content>
+        <Footer />
+      </PageContainer>
+    </ThemeProvider>
+  );
+};
 
 Container.propTypes = {
   children: PropTypes.node.isRequired,
-  theme: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export default function WrappedContainer(props) {
   return (
-    <ThemeProvider theme={globalTheme}>
-      <Global styles={globalStyle(globalTheme)} />
-      <Container {...props} theme={globalTheme} />
-    </ThemeProvider>
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+              author
+            }
+          }
+        }
+      `}
+      render={data => (
+        <>
+          <Helmet
+            title={data.site.siteMetadata.title}
+            meta={[
+              {name: 'description', content: 'Sample'},
+              {name: 'keywords', content: 'sample, something'},
+              {name: 'theme-color', content: globalTheme.color.primary},
+            ]}
+          >
+            <html lang="en" />
+          </Helmet>
+          <Container data={data} {...props} />
+        </>
+      )}
+    />
   );
 }

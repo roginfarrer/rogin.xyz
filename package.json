@@ -24,10 +24,11 @@
     "gatsby-transformer-sharp": "^1.6.27",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
     "react-helmet": "^5.2.0",
-    "rogin-scripts": "^0.0.6-development"
+    "rogin-scripts": "^0.0.6-development",
+    "use-dark-mode": "^2.3.0"
   },
   "keywords": [
     "gatsby"
