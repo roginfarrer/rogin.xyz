@@ -22,6 +22,7 @@ const PostFooter = styled.div`
 `;
 
 const PostTitle = styled.h2`
+  font-family: ${({theme}) => theme.fontFamily.serif};
   font-size: ${({theme}) => theme.fontSize.large};
   margin-bottom: 0.5rem;
 `;
@@ -42,7 +43,11 @@ const PostDate = styled.p`
 
 export default function Index({data = {}}) {
   const {edges: posts} = data.allMarkdownRemark;
-  const {site: {siteMetadata: {title, author}}} = data;
+  const {
+    site: {
+      siteMetadata: {title, author},
+    },
+  } = data;
   return (
     <Layout>
       <SiteHeader siteTitle={title} author={author} showByline />

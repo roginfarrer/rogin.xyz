@@ -15,7 +15,7 @@ const HeaderContainer = styled.header`
   margin: 2em auto 0;
 `;
 
-const Title = styled.h1`
+const title = () => css`
   margin: 0;
   font-size: 1rem;
   flex: 1;
@@ -38,22 +38,26 @@ const TitleByline = styled.span`
   margin-top: 0.25rem;
 `;
 
-const StyledHeader = ({siteTitle, showByline}) => (
-  <HeaderContainer>
-    <Title>
-      Hi, I&apos;m&nbsp;
-      <Link css={titleLink} to="/">
-        {siteTitle}
-      </Link>
-      .
-      {showByline && (
-        <TitleByline>
-          A personal blog about technology, web development, and some IRL stuff.
-        </TitleByline>
-      )}
-    </Title>
-  </HeaderContainer>
-);
+const StyledHeader = ({siteTitle, showByline}) => {
+  const RenderedHeading = showByline ? 'h1' : 'h3';
+  return (
+    <HeaderContainer>
+      <RenderedHeading css={title}>
+        Hi, I&apos;m&nbsp;
+        <Link css={titleLink} to="/">
+          {siteTitle}
+        </Link>
+        .
+        {showByline && (
+          <TitleByline>
+            A personal blog about technology, web development, and some IRL
+            stuff.
+          </TitleByline>
+        )}
+      </RenderedHeading>
+    </HeaderContainer>
+  );
+};
 StyledHeader.propTypes = {
   siteTitle: PropTypes.string.isRequired,
   showByline: PropTypes.bool,

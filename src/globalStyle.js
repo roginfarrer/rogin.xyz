@@ -39,8 +39,4 @@ export const globalStyle = theme => css`
   img {
     max-width: 100%;
   }
-
-  h2, h3, h4 {
-    font-family: ${theme.fontFamily.serif};
-  }
 `;

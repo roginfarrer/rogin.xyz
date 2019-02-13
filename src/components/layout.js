@@ -5,10 +5,9 @@ import {StaticQuery, graphql} from 'gatsby';
 import styled from '@emotion/styled';
 import {ThemeProvider} from 'emotion-theming';
 import {Global} from '@emotion/core';
-import useDarkMode from 'use-dark-mode';
 
 import {globalStyle} from '../globalStyle';
-import {theme as globalTheme, darkTheme} from '../theme';
+import {theme as globalTheme} from '../theme';
 import Footer from './site-footer';
 import '../assets/styles/style.css';
 
@@ -25,15 +24,10 @@ const Content = styled.main`
 `;
 
 const Container = ({children}) => {
-  const {toggle: toggleDarkMode, value: isDarkMode} = useDarkMode(false);
-
-  const theme = isDarkMode ? darkTheme : globalTheme;
-
   return (
-    <ThemeProvider theme={theme}>
-      <Global styles={globalStyle(theme)} />
+    <ThemeProvider theme={globalTheme}>
+      <Global styles={globalStyle(globalTheme)} />
       <PageContainer>
-        <input type="checkbox" onChange={toggleDarkMode} checked={isDarkMode} />
         <Content>{children}</Content>
         <Footer />
       </PageContainer>

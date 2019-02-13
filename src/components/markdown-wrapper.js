@@ -13,14 +13,19 @@ const MarkdownWrapper = styled.div`
     word-break: break-word;
     hyphens: auto;
   }
+  h2 {
+    font-size: ${({theme}) => theme.fontSize.large};
+  }
   h3 {
     font-size: ${({theme}) => theme.fontSize.large};
   }
   h4 {
-    font-size: ${({theme}) => theme.fontSize.medium};
+    font-size: ${({theme}) => theme.fontSize.body};
   }
+  h2,
   h3,
   h4 {
+    font-family: ${({theme}) => theme.fontFamily.serif};
     line-height: 1.25;
     margin: 1.5em 0 0.5em;
   }

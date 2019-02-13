@@ -12,7 +12,8 @@ const Article = styled.article`
   margin: 0 auto;
 `;
 
-const ArticleTitle = styled.h2`
+const ArticleTitle = styled.h1`
+  font-family: ${({theme}) => theme.fontFamily.serif};
   font-size: ${({theme}) => theme.fontSize.large};
   ${({theme}) => theme.media.sm`
     font-size: ${theme.fontSize.roadsign};
