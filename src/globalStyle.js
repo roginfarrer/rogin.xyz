@@ -7,6 +7,7 @@ export const globalStyle = theme => css`
   }
 
   body {
+    -webkit-font-smoothing: ${theme.useAntiAliasing ? 'antialiased' : ''};
     min-height: 100vh;
     font-size: ${theme.fontSize.body}
     -webkit-font-smoothing: antialiased;
@@ -37,9 +38,5 @@ export const globalStyle = theme => css`
 
   img {
     max-width: 100%;
-  }
-
-  h2, h3, h4 {
-    font-family: ${theme.fontFamily.serif};
   }
 `;

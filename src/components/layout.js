@@ -13,6 +13,8 @@ import '../assets/styles/style.css';
 
 const PageContainer = styled.div`
   padding: 0 15px;
+  background-color: ${({theme}) => theme.color.background};
+  transition: background-color 0.2s ease;
 `;
 
 const Content = styled.main`
@@ -21,49 +23,50 @@ const Content = styled.main`
   margin: 0 auto;
 `;
 
-const Container = ({children, theme}) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-            author
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            {name: 'description', content: 'Sample'},
-            {name: 'keywords', content: 'sample, something'},
-            {name: 'theme-color', content: theme.color.primary},
-          ]}
-        >
-          <html lang="en" />
-        </Helmet>
-        <PageContainer>
-          <Content>{children}</Content>
-          <Footer />
-        </PageContainer>
-      </>
-    )}
-  />
-);
+const Container = ({children}) => {
+  return (
+    <ThemeProvider theme={globalTheme}>
+      <Global styles={globalStyle(globalTheme)} />
+      <PageContainer>
+        <Content>{children}</Content>
+        <Footer />
+      </PageContainer>
+    </ThemeProvider>
+  );
+};
 
 Container.propTypes = {
   children: PropTypes.node.isRequired,
-  theme: PropTypes.object.isRequired,
 };
 
 export default function WrappedContainer(props) {
   return (
-    <ThemeProvider theme={globalTheme}>
-      <Global styles={globalStyle(globalTheme)} />
-      <Container {...props} theme={globalTheme} />
-    </ThemeProvider>
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+              author
+            }
+          }
+        }
+      `}
+      render={data => (
+        <>
+          <Helmet
+            title={data.site.siteMetadata.title}
+            meta={[
+              {name: 'description', content: 'Sample'},
+              {name: 'keywords', content: 'sample, something'},
+              {name: 'theme-color', content: globalTheme.color.primary},
+            ]}
+          >
+            <html lang="en" />
+          </Helmet>
+          <Container {...props} />
+        </>
+      )}
+    />
   );
 }
