@@ -110,11 +110,23 @@ const MarkdownWrapper = styled.div`
     }
   }
 
+  figure,
+  iframe {
+    margin-bottom: 1.25em;
+  }
+
+  figure,
+  img {
+    ${({theme}) => theme.media.md`
+      margin-left: -2.5em;
+      margin-right: -2.5em;
+    `};
+  }
+
   figure {
-    margin: 0 0 1.25em;
     text-align: center;
     ${({theme}) => theme.media.md`
-      margin: 0 -5em 1.25em;
+      margin: 0 -2.5em 1.25em;
     `};
     figcaption {
       color: ${({theme}) => theme.color.lightBase};
