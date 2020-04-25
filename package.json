@@ -48,5 +48,8 @@
   },
   "devDependencies": {
     "prettier": "^1"
+  },
+  "engines": {
+    "node": ">=10"
   }
 }
