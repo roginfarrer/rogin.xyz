@@ -72,7 +72,7 @@ Later on, when I was rewriting demos for v3 of `useCollapse`, I came across a ti
 
 And then, a lightbulb went off!
 
-![Andy for parks and rec looking excited]()
+![Andy for parks and rec looking excited](andy.gif)
 
 It was `box-sizing`! I quickly added `box-sizing: border-box` to the collapse element, and poof! the bug was gone!
 
