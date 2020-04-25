@@ -9,15 +9,18 @@
     "emotion-theming": "^10.0.7",
     "gatsby": "^2.0.119",
     "gatsby-image": "^2.0.29",
-    "gatsby-plugin-catch-links": "^1.0.24",
+    "gatsby-plugin-catch-links": "^2.2.3",
     "gatsby-plugin-emotion": "^4.0.3",
     "gatsby-plugin-favicon": "^3.1.2",
     "gatsby-plugin-manifest": "^2.0.17",
     "gatsby-plugin-netlify": "^2.0.10",
     "gatsby-plugin-offline": "^2.0.23",
     "gatsby-plugin-react-helmet": "^3.0.6",
-    "gatsby-plugin-sharp": "^2.0.20",
+    "gatsby-plugin-sharp": "2.2.14",
+    "gatsby-remark-copy-linked-files": "^2.2.3",
+    "gatsby-remark-images": "^3.2.4",
     "gatsby-remark-prismjs": "^3.2.4",
+    "gatsby-remark-relative-images": "^0.3.0",
     "gatsby-source-filesystem": "^2.0.20",
     "gatsby-transformer-remark": "^2.2.5",
     "gatsby-transformer-sharp": "^2.1.13",
@@ -42,5 +45,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/roginfarrer/rogin.xyz"
+  },
+  "devDependencies": {
+    "prettier": "^1"
+  },
+  "engines": {
+    "node": ">=10"
   }
 }

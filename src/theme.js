@@ -51,7 +51,7 @@ export const theme = {
       return acc;
     }, {}),
   },
-  pageWidth: '32rem',
+  pageWidth: '38rem',
   useAntiAliasing: false,
 };
 
