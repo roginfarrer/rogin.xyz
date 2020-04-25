@@ -110,25 +110,24 @@ const MarkdownWrapper = styled.div`
     }
   }
 
-  figure,
-  iframe {
-    margin-bottom: 1.25em;
-  }
-
+  iframe,
   figure,
   img {
+    margin-bottom: 1.25rem;
     ${({theme}) => theme.media.md`
-      margin-left: -2.5em;
-      margin-right: -2.5em;
+      margin-left: -1.5rem;
+      width: calc(100% + 2.25rem)
     `};
+  }
+
+  img {
+    box-shadow: 0px 2px 10px 2px ${({theme}) => theme.color.lighterBase};
   }
 
   figure {
     text-align: center;
-    ${({theme}) => theme.media.md`
-      margin: 0 -2.5em 1.25em;
-    `};
     figcaption {
+      margin-top: 1.25rem;
       color: ${({theme}) => theme.color.lightBase};
       font-size: ${({theme}) => theme.fontSize.small};
     }

@@ -1,7 +1,7 @@
 ---
 title: DOM measurements, box-sizing, and padding with React Collapsed
 path: /dom-measurements-padding-react-collapsed
-date: 2020-04-19
+date: 2020-04-25
 ---
 
 One of the longest standing bugs I've encountered with [`useCollapse`](https://github.com/roginfarrer/react-collapsed) is a never-ending expanding animation when there's padding applied to the collapsed element.
@@ -12,7 +12,7 @@ I've exhausted countless hours on this one edge case bug, where if padding is ap
 
 <iframe
      src="https://codesandbox.io/embed/react-collapsed-infinite-animation-bug-5gwfw?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     style="height:500px; border:0; border-radius: 4px; overflow:hidden;"
      title="react-collapsed infinite animation bug"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -88,7 +88,7 @@ Let's take a look at how that manifests:
 
 <iframe
      src="https://codesandbox.io/embed/measuring-height-border-box-1ymee?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     style="height:500px; border:0; border-radius: 4px; overflow:hidden;"
      title="Measuring height, border-box"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -102,7 +102,7 @@ Here's `useCollapse` today with padding applied to the element:
 
 <iframe
      src="https://codesandbox.io/embed/inspiring-poitras-fzc16?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     style="height:500px; border:0; border-radius: 4px; overflow:hidden;"
      title="inspiring-poitras-fzc16"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
