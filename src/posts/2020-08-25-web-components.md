@@ -1,7 +1,7 @@
 ---
 title: Web Components and React Components - A Comparison
 path: /web-components-and-react-compared
-date: 2020-08-26
+date: 2020-08-25
 ---
 
 When I first started working with React, Web Components weren't a serious contender in the design systems space. But I can't help but notice more and more systems built with them, like [Duet](https://www.duetds.com) and [Carbon Web Components](https://github.com/carbon-design-system/carbon-web-components), to name a couple.
