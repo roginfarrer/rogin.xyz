@@ -4,7 +4,8 @@ import {Link, graphql} from 'gatsby';
 import styled from '@emotion/styled';
 
 import Layout from '../components/layout';
-import SiteHeader from '../components/site-header';
+import {SiteHeader} from '../layout/SiteHeader';
+// import SiteHeader from '../components/site-header';
 
 const BlogIndex = styled.section`
   margin: 3em auto 0;
@@ -50,8 +51,9 @@ export default function Index({data = {}}) {
   } = data;
   return (
     <Layout>
-      <SiteHeader siteTitle={title} author={author} showByline />
+      <SiteHeader />
       <BlogIndex>
+        <h2>Articles</h2>
         {posts
           .filter(post => post.node.frontmatter.title.length > 0)
           .map(({node: post}) => {
