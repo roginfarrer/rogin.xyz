@@ -2,19 +2,18 @@ import {css} from '@emotion/core';
 
 export const globalStyle = theme => css`
   html {
-    font-family: ${theme.fontFamily.sansSerif};
+    font-family: ${theme.fontFamilies.sansSerif};
     font-size: 18px;
   }
 
   body {
     -webkit-font-smoothing: ${theme.useAntiAliasing ? 'antialiased' : ''};
     min-height: 100vh;
-    font-size: ${theme.fontSize.body}
-    -webkit-font-smoothing: antialiased;
+    font-size: ${theme.fontSizes[1]};
   }
 
   a {
-    color: ${theme.color.primary};
+    color: ${theme.colors.accent};
   }
 
   p {

@@ -3,42 +3,43 @@ import PropTypes from 'prop-types';
 import {Link, graphql} from 'gatsby';
 import styled from '@emotion/styled';
 
+import Box from '../components/Box';
 import Layout from '../components/layout';
 import {SiteHeader} from '../layout/SiteHeader';
 // import SiteHeader from '../components/site-header';
 
-const BlogIndex = styled.section`
-  margin: 3em auto 0;
-  max-width: ${({theme}) => theme.pageWidth};
-`;
+// const BlogIndex = styled.section`
+//   margin: 3em auto 0;
+//   max-width: ${({theme}) => theme.pageWidth};
+// `;
 
-const Post = styled.section`
-  & + & {
-    margin-top: 3rem;
-  }
-`;
+// const Post = styled.section`
+//   & + & {
+//     margin-top: 3rem;
+//   }
+// `;
 
 const PostFooter = styled.div`
   margin-top: 1rem;
 `;
 
-const PostTitle = styled.h2`
-  font-family: ${({theme}) => theme.fontFamily.serif};
-  font-size: ${({theme}) => theme.fontSize.large};
-  margin-bottom: 0.5rem;
-`;
+// const PostTitle = styled.h2`
+//   font-family: ${({theme}) => theme.fontFamily.serif};
+//   font-size: ${({theme}) => theme.fontSize.large};
+//   margin-bottom: 0.5rem;
+// `;
 
 const PostTitleLink = styled(Link)`
-  color: ${({theme}) => theme.color.base};
+  color: ${({theme}) => theme.colors[3]};
   text-decoration: none;
   &:hover,
   &:focus {
-    color: ${({theme}) => theme.color.primary};
+    color: ${({theme}) => theme.colors.accent};
   }
 `;
 
 const PostDate = styled.p`
-  font-size: ${({theme}) => theme.fontSize.small};
+  font-size: ${({theme}) => theme.fontSizes[0]};
   margin: 0;
 `;
 
@@ -52,18 +53,25 @@ export default function Index({data = {}}) {
   return (
     <Layout>
       <SiteHeader />
-      <BlogIndex>
+      <Box m="3em auto 0" maxWidth="38em">
         <h2>Articles</h2>
         {posts
           .filter(post => post.node.frontmatter.title.length > 0)
           .map(({node: post}) => {
             return (
-              <Post key={post.id}>
-                <PostTitle>
+              <Box
+                css={{
+                  '& + &': {
+                    marginTop: '3rem',
+                  },
+                }}
+                key={post.id}
+              >
+                <Box as="h2" fontSize={4} mb="0.5rem">
                   <PostTitleLink to={post.frontmatter.path}>
                     {post.frontmatter.title}
                   </PostTitleLink>
-                </PostTitle>
+                </Box>
                 <p>
                   {post.frontmatter.excerpt ? (
                     <span
@@ -78,10 +86,10 @@ export default function Index({data = {}}) {
                 <PostFooter>
                   <PostDate>Posted on {post.frontmatter.date}</PostDate>
                 </PostFooter>
-              </Post>
+              </Box>
             );
           })}
-      </BlogIndex>
+      </Box>
     </Layout>
   );
 }

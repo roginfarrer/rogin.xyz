@@ -10,6 +10,7 @@ import {globalStyle} from '../globalStyle';
 import {theme as globalTheme} from '../theme';
 import Footer from './site-footer';
 import '../assets/styles/style.css';
+import Box from './Box';
 
 const PageContainer = styled.div`
   padding: 0 15px;
@@ -27,10 +28,12 @@ const Container = ({children}) => {
   return (
     <ThemeProvider theme={globalTheme}>
       <Global styles={globalStyle(globalTheme)} />
-      <PageContainer>
-        <Content>{children}</Content>
+      <Box px={3} bg="white" transition="background-color .2s ease">
+        <Box color="grays.2" lineHeight="1.5" m="0 auto">
+          {children}
+        </Box>
         <Footer />
-      </PageContainer>
+      </Box>
     </ThemeProvider>
   );
 };
@@ -59,7 +62,7 @@ export default function WrappedContainer(props) {
             meta={[
               {name: 'description', content: 'Sample'},
               {name: 'keywords', content: 'sample, something'},
-              {name: 'theme-color', content: globalTheme.color.primary},
+              {name: 'theme-color', content: globalTheme.colors.accent},
             ]}
           >
             <html lang="en" />

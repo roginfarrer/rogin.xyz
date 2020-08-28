@@ -10,16 +10,16 @@ const Footer = styled.footer`
 `;
 
 const TwitterLink = styled.a`
-  color: ${({theme}) => theme.color.brands.twitter};
+  color: ${({theme}) => theme.colors.twitter};
 `;
 
 const GithubLink = styled.a`
-  color: ${({theme}) => theme.color.brands.github};
+  color: ${({theme}) => theme.colors.github};
 `;
 
 const FooterText = styled.span`
   display: flex;
-  font-size: ${({theme}) => theme.fontSize.small};
+  font-size: ${({theme}) => theme.fontSizes[0]};
   justify-content: space-between;
 `;
 
