@@ -1,33 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link, graphql} from 'gatsby';
+import {graphql} from 'gatsby';
 import styled from '@emotion/styled';
 
 import Box from '../components/Box';
 import Layout from '../components/layout';
+import Link from '../components/Link';
 import {SiteHeader} from '../layout/SiteHeader';
-// import SiteHeader from '../components/site-header';
-
-// const BlogIndex = styled.section`
-//   margin: 3em auto 0;
-//   max-width: ${({theme}) => theme.pageWidth};
-// `;
-
-// const Post = styled.section`
-//   & + & {
-//     margin-top: 3rem;
-//   }
-// `;
-
-const PostFooter = styled.div`
-  margin-top: 1rem;
-`;
-
-// const PostTitle = styled.h2`
-//   font-family: ${({theme}) => theme.fontFamily.serif};
-//   font-size: ${({theme}) => theme.fontSize.large};
-//   margin-bottom: 0.5rem;
-// `;
+import {SiteHeaderBio} from '../layout/SiteHeaderBio';
 
 const PostTitleLink = styled(Link)`
   color: ${({theme}) => theme.colors[3]};
@@ -38,57 +18,57 @@ const PostTitleLink = styled(Link)`
   }
 `;
 
-const PostDate = styled.p`
-  font-size: ${({theme}) => theme.fontSizes[0]};
-  margin: 0;
-`;
-
 export default function Index({data = {}}) {
   const {edges: posts} = data.allMarkdownRemark;
-  const {
-    site: {
-      siteMetadata: {title, author},
-    },
-  } = data;
   return (
     <Layout>
-      <SiteHeader />
-      <Box m="3em auto 0" maxWidth="38em">
-        <h2>Articles</h2>
-        {posts
-          .filter(post => post.node.frontmatter.title.length > 0)
-          .map(({node: post}) => {
-            return (
-              <Box
-                css={{
-                  '& + &': {
-                    marginTop: '3rem',
-                  },
-                }}
-                key={post.id}
-              >
-                <Box as="h2" fontSize={4} mb="0.5rem">
-                  <PostTitleLink to={post.frontmatter.path}>
-                    {post.frontmatter.title}
-                  </PostTitleLink>
+      <Box
+        // display={['block', 'block', 'block', 'block', 'grid']}
+        display="grid"
+        gridTemplateColumns={'300px 1fr'}
+        gridTemplateAreas={[
+          "'bio bio' 'blog blog'",
+          "'bio bio' 'blog blog'",
+          "'bio bio' 'blog blog'",
+          "'bio bio' 'blog blog'",
+          "'bio blog'",
+        ]}
+        gridGap="40px"
+        maxWidth="55em"
+        mt={3}
+        mx="auto"
+      >
+        <Box gridArea="bio" mt={3}>
+          <SiteHeaderBio />
+        </Box>
+        <Box gridArea="blog" maxWidth="38em">
+          <Box as="h2" fontSize={4} mb={4}>
+            Articles
+          </Box>
+          {posts
+            .filter(post => post.node.frontmatter.title.length > 0)
+            .map(({node: post}) => {
+              return (
+                <Box
+                  css={{
+                    '& + &': {
+                      marginTop: '3rem',
+                    },
+                  }}
+                  key={post.id}
+                >
+                  <Box as="h2" fontFamily="serif" fontSize={2} mb={2}>
+                    <PostTitleLink color="grays.2" to={post.frontmatter.path}>
+                      {post.frontmatter.title}
+                    </PostTitleLink>
+                  </Box>
+                  <Box fontSize={0} as="p">
+                    Posted on {post.frontmatter.date}
+                  </Box>
                 </Box>
-                <p>
-                  {post.frontmatter.excerpt ? (
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: post.frontmatter.excerpt,
-                      }}
-                    />
-                  ) : (
-                    post.excerpt
-                  )}
-                </p>
-                <PostFooter>
-                  <PostDate>Posted on {post.frontmatter.date}</PostDate>
-                </PostFooter>
-              </Box>
-            );
-          })}
+              );
+            })}
+        </Box>
       </Box>
     </Layout>
   );

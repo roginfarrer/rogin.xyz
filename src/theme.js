@@ -5,13 +5,15 @@ Helvetica, sans-serif`;
 
 const serifFallback = `"Merriweather, Georgia, serif"`;
 
-export const breakpoints = {
-  xs: 450,
-  sm: 640,
-  md: 1024,
-  lg: 1141,
-  xl: 1400,
-};
+const breakpoints = ['23em', '30em', '38em', '52em', '64em', '80em'];
+
+// export const breakpoints = {
+//   xs: 450,
+//   sm: 640,
+//   md: 1024,
+//   lg: 1141,
+//   xl: 1400,
+// };
 
 export const theme = {
   colors: {
@@ -22,7 +24,7 @@ export const theme = {
     linkedin: '#0074b6',
     white: '#fff',
   },
-  fontFamilies: {
+  fonts: {
     sansSerif: `"Lato", ${sansSerifFallback}`,
     serif: `"Vollkorn", ${serifFallback}`,
   },
@@ -34,7 +36,18 @@ export const theme = {
     '2rem', // 32px
     '3rem', // 48
   ],
-  breakpoints: ['23em', '30em', '40em', '52em', '64em', '80em'],
+  media: {
+    ...Object.keys(breakpoints).reduce((acc, label) => {
+      // `any` type below to allow whatever values that styled-components accepts in the css function
+      acc[label] = (...args) => css`
+        @media screen and (min-width: ${breakpoints[label]}px) {
+          ${css(...args)};
+        }
+      `;
+      return acc;
+    }, {}),
+  },
+  breakpoints,
   useAntiAliasing: false,
 };
 

@@ -14,18 +14,18 @@ const MarkdownWrapper = styled.div`
     hyphens: auto;
   }
   h2 {
-    font-size: ${({theme}) => theme.fontSize.large};
+    font-size: ${({theme}) => theme.fontSizes[3]};
   }
   h3 {
-    font-size: ${({theme}) => theme.fontSize.large};
+    font-size: ${({theme}) => theme.fontSizes[3]};
   }
   h4 {
-    font-size: ${({theme}) => theme.fontSize.body};
+    font-size: ${({theme}) => theme.fontSizes[1]};
   }
   h2,
   h3,
   h4 {
-    font-family: ${({theme}) => theme.fontFamily.serif};
+    font-family: ${({theme}) => theme.fonts.serif};
     line-height: 1.25;
     margin: 1.5em 0 0.5em;
   }
@@ -52,7 +52,7 @@ const MarkdownWrapper = styled.div`
     counter-reset: listCounter;
     li {
       &::before {
-        color: ${({theme}) => theme.color.primary};
+        color: ${({theme}) => theme.colors.accent};
         position: absolute;
       }
       counter-increment: listCounter;
@@ -80,12 +80,12 @@ const MarkdownWrapper = styled.div`
 
   hr {
     margin: 3em 0;
-    border-top: ${({theme}) => `1px solid ${theme.color.lighterBase}`};
+    border-top: ${({theme}) => `1px solid ${theme.colors.grays[0]}`};
   }
 
   blockquote {
-    color: ${({theme}) => theme.color.lightBase};
-    font-size: ${({theme}) => theme.fontSize.large};
+    color: ${({theme}) => theme.colors.grays[1]};
+    font-size: ${({theme}) => theme.fontSizes[2]};
     position: relative;
     margin: 2em 0;
     &::before {
@@ -103,8 +103,8 @@ const MarkdownWrapper = styled.div`
   li {
     > code.language-text {
       background-color: ${({theme}) =>
-        `rgba(${hexToRgb(theme.color.primary)}, 0.1)`};
-      color: ${({theme}) => theme.color.primary};
+        `rgba(${hexToRgb(theme.colors.accent)}, 0.1)`};
+      color: ${({theme}) => theme.colors.accent};
       font-family: 'Consolas', 'Courier Prime', menlo, monospace;
       padding: 0 0.2rem;
     }
@@ -114,22 +114,22 @@ const MarkdownWrapper = styled.div`
   figure,
   img {
     margin-bottom: 1.25rem;
-    ${({theme}) => theme.media.md`
-      margin-left: -1.5rem;
-      width: calc(100% + 2.25rem)
-    `};
+    // ${({theme}) => theme.media.md`
+    //   margin-left: -1.5rem;
+    //   width: calc(100% + 2.25rem)
+    // `};
   }
 
   img {
-    box-shadow: 0px 2px 10px 2px ${({theme}) => theme.color.lighterBase};
+    box-shadow: 0px 2px 10px 2px ${({theme}) => theme.colors.grays[0]};
   }
 
   figure {
     text-align: center;
     figcaption {
       margin-top: 1.25rem;
-      color: ${({theme}) => theme.color.lightBase};
-      font-size: ${({theme}) => theme.fontSize.small};
+      color: ${({theme}) => theme.colors.grays[1]};
+      font-size: ${({theme}) => theme.fontSizes[0]};
     }
   }
 `;

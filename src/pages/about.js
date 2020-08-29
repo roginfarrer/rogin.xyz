@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import {keyframes} from '@emotion/core';
 
 import Layout from '../components/layout';
-import Header from '../components/site-header';
+// import Header from '../components/site-header';
 import {theme as globalTheme} from '../theme';
 
 const avatarEnter = keyframes`
@@ -50,7 +50,6 @@ const StyledSocialAnchor = props => (
 export default function About({data}) {
   return (
     <Layout>
-      <Header siteTitle={data.site.siteMetadata.title} />
       <Page>
         <MeContainer>
           <Me sizes={data.avatarImg.childImageSharp.sizes} />

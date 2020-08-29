@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 
 import Layout from './layout';
 import MarkdownWrapper from './markdown-wrapper';
-import Header from './site-header';
+import {SiteHeader} from '../layout/SiteHeader';
 
 const Article = styled.article`
   max-width: ${({theme}) => theme.pageWidth};
@@ -13,17 +13,17 @@ const Article = styled.article`
 `;
 
 const ArticleTitle = styled.h1`
-  font-family: ${({theme}) => theme.fontFamily.serif};
-  font-size: ${({theme}) => theme.fontSize.large};
-  ${({theme}) => theme.media.sm`
-    font-size: ${theme.fontSize.roadsign};
-  `};
+  font-family: ${({theme}) => theme.fonts.serif};
+  font-size: ${({theme}) => theme.fontSizes[2]};
+  // ${({theme}) => theme.media.sm`
+  //   font-size: ${theme.fontSizes[2]};
+  // `};
   margin: 1.5em 0 0.5em;
 `;
 
 const ArticleDate = styled.p`
   margin: 1.5em 0;
-  font-family: ${({theme}) => theme.fontFamily.serif};
+  font-family: ${({theme}) => theme.fonts.serif};
   font-variant: small-caps;
 `;
 
@@ -31,7 +31,7 @@ const Template = ({data}) => {
   const {markdownRemark: post} = data;
   return (
     <Layout>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <SiteHeader />
       <Article>
         <ArticleTitle>{post.frontmatter.title}</ArticleTitle>
         <ArticleDate>{post.frontmatter.date}</ArticleDate>

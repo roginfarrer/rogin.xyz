@@ -2,7 +2,7 @@ import {css} from '@emotion/core';
 
 export const globalStyle = theme => css`
   html {
-    font-family: ${theme.fontFamilies.sansSerif};
+    font-family: ${theme.fonts.sansSerif};
     font-size: 18px;
   }
 
@@ -19,21 +19,6 @@ export const globalStyle = theme => css`
   p {
     margin: 0;
   }
-
-  /* a,
-  area,
-  button,
-  input,
-  label,
-  select,
-  summary,
-  textarea,
-  [tabindex] {
-    &:focus {
-      outline: 1px dashed ${theme.color.base};
-      outline-offset: 2px;
-    }
-  } */
 
   img {
     max-width: 100%;
