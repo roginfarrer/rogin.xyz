@@ -36,7 +36,7 @@ module.exports = {
       options: {
         logo: './src/images/bitmoji2.png',
         // WebApp Manifest Configuration
-        appName: 'Superb Meteors',
+        appName: 'Rogin Farrer',
         appDescription: null,
         developerName: 'Rogin Farrer',
         developerURL: null,
