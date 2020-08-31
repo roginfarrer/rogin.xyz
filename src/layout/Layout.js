@@ -7,9 +7,8 @@ import {Global} from '@emotion/core';
 
 import {globalStyle} from '../globalStyle';
 import {theme as globalTheme} from '../theme';
-// import Footer from './site-footer';
 import '../assets/styles/style.css';
-import Box from './Box';
+import Box from '../components/Box';
 
 const Container = ({children}) => {
   return (

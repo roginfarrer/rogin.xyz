@@ -5,7 +5,7 @@ import Img from 'gatsby-image';
 import styled from '@emotion/styled';
 import {keyframes} from '@emotion/core';
 
-import Layout from '../components/layout';
+import Layout from '../layout/Layout';
 // import Header from '../components/site-header';
 import {theme as globalTheme} from '../theme';
 

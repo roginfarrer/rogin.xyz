@@ -4,9 +4,8 @@ import {graphql} from 'gatsby';
 import styled from '@emotion/styled';
 
 import Box from '../components/Box';
-import Layout from '../components/layout';
+import Layout from '../layout/Layout';
 import Link from '../components/Link';
-import {SiteHeader} from '../layout/SiteHeader';
 import {SiteHeaderBio} from '../layout/SiteHeaderBio';
 
 const PostTitleLink = styled(Link)`
@@ -23,26 +22,26 @@ export default function Index({data = {}}) {
   return (
     <Layout>
       <Box
-        // display={['block', 'block', 'block', 'block', 'grid']}
         display="grid"
-        gridTemplateColumns={'300px 1fr'}
-        gridTemplateAreas={[
-          "'bio bio' 'blog blog'",
-          "'bio bio' 'blog blog'",
-          "'bio bio' 'blog blog'",
-          "'bio bio' 'blog blog'",
-          "'bio blog'",
-        ]}
-        gridGap="40px"
-        maxWidth="55em"
-        mt={3}
+        gridTemplateColumns={['1fr', , , , '20em 1fr']}
+        gridTemplateAreas={["'bio' 'blog'", , , , "'bio blog'"]}
+        gridRowGap={[5, , , , 0]}
+        gridColumnGap={[0, , , , 5]}
+        maxWidth="58em"
         mx="auto"
+        mt={3}
       >
-        <Box gridArea="bio" mt={3}>
+        <Box gridArea="bio">
           <SiteHeaderBio />
         </Box>
         <Box gridArea="blog" maxWidth="38em">
-          <Box as="h2" fontSize={4} mb={4}>
+          <Box
+            as="h2"
+            fontSize={4}
+            mb={4}
+            textAlign="center"
+            fontFamily="serif"
+          >
             Articles
           </Box>
           {posts

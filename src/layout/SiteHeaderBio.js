@@ -9,18 +9,28 @@ export function SiteHeaderBio() {
     <>
       <Box
         display="grid"
-        gridGap="16px"
+        gridGap={[3, , 4]}
         gridTemplateColumns={['auto', '1fr 1.5fr', 'auto']}
         gridTemplateAreas={[
           "'name name' 'pic pic' 'bio bio' 'links links'",
           "'name name' 'pic bio' 'links links'",
-          "'name name' 'pic bio' 'pic links'",
+          "'name name' 'pic bio' 'links links'",
           "'name name' 'pic bio' 'pic links'",
           "'name name' 'pic pic' 'bio bio' 'links links'",
         ]}
       >
-        <Box as="h1" fontSize={4} gridArea="name">
+        <Box
+          textAlign="center"
+          fontFamily="serif"
+          as="h1"
+          fontSize={4}
+          gridArea="name"
+          // pb={3}
+        >
           Rogin Farrer
+          <Box mt={-2} as="span" display="block" fontSize={3} color="grays.0">
+            Software Engineer
+          </Box>
         </Box>
         <Box
           gridArea="pic"
@@ -31,7 +41,7 @@ export function SiteHeaderBio() {
           <Box
             borderRadius="50%"
             overflow="hidden"
-            maxWidth={['150px', '100%', '100%', '150px']}
+            maxWidth={['150px', '100%', '100%', '200px']}
           >
             <Box
               as="img"
@@ -49,7 +59,7 @@ export function SiteHeaderBio() {
             and a cup of coffee.
           </Box>
         </Box>
-        <Stack as="ul" ml={1} gap="-2px" gridArea="links">
+        <Stack as="ul" ml={3} gap="-2px" gridArea="links">
           <ExternalItem emoji="💻">
             Review my pull requests on&nbsp;
             <Link
@@ -90,7 +100,7 @@ export function SiteHeaderBio() {
 function ExternalItem({emoji, children}) {
   return (
     <Box as="li" display="flex" alignItems="center">
-      <Box as="span" mr={3} fontSize={3}>
+      <Box aria-hidden="true" as="span" mr={3} fontSize={3}>
         {emoji}
       </Box>
       <span>{children}</span>

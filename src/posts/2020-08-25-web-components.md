@@ -106,7 +106,7 @@ window.customElements.define('foo-component', Foo);
 
 Wait, how do we keep track of internal mutable values? Where do we render the markup?? Let's dig into the web component line-by-line, and discuss what's going on.
 
-### `HTMLElement`
+### HTMLElement
 
 ```javascript
 class Foo extends HTMLElement {}
@@ -114,7 +114,7 @@ class Foo extends HTMLElement {}
 
 A Web Component (or custom element) starts by declaring a new class that extends `HTMLElement`, a global object in the browser that you can think of as a primitive for all other HTML elements. You can actually extend real HTML elements to inherit their qualities (like `HTMLParagraphElement`), but that's for another time!
 
-### `observedAttributes`
+### observedAttributes
 
 ```javascript
 static get observedAttributes() {
@@ -130,7 +130,7 @@ We're already getting a taste of getters and setters! Similar to `propTypes`, in
 
 ...we should define `'type'` in this array. We'll discuss how to react to this change in `changedAttributesCallback`.
 
-### `connectedCallback` & `disconnectedCallback`
+### connectedCallback & disconnectedCallback
 
 ```javascript
 connectedCallback() { }
@@ -140,7 +140,7 @@ disconnectedCallback() { }
 
 These two methods draw the clearest comparison to React classes' lifecycle methods. They will most often be used for handling event listeners, fetching data, clean-up, etc.
 
-### `attributeChangedCallback`
+### attributeChangedCallback
 
 ```javascript
 attributeChangedCallback(attributeName, oldValue, newValue) { }
@@ -158,7 +158,7 @@ attributeChangedCallback(attributeName, oldValue, newValue) {
 }
 ```
 
-### `constructor`
+### constructor
 
 Whew, we've gone all this way without discussing state or markup! Pretty much all of this happens in the class' constructor. Since this topic requires the most detail, let's dig into an example Web Component, where we can tie all of the API together.
 

@@ -15,10 +15,6 @@ import {
 import shouldForwardProp from '@styled-system/should-forward-prop';
 
 const Box = styled('div', {shouldForwardProp})(
-  {
-    boxSizing: 'border-box',
-    minWidth: 0,
-  },
   compose(
     border,
     shadow,
@@ -32,10 +28,7 @@ const Box = styled('div', {shouldForwardProp})(
     system({
       transform: true,
       textDecoration: true,
-      gridGap: {
-        scale: 'space',
-        property: 'gridGap',
-      },
+      fontVariant: true,
     })
   )
 );
